@@ -6,13 +6,16 @@ import React, { Component } from 'react';
 class ContactsList extends Component {
   componentDidMount() {
     const storageContacts = JSON.parse(localStorage.getItem('contacts'));
+    console.log(storageContacts);
     if (storageContacts) {
       this.props.getContacts(storageContacts);
     }
   }
 
-  componentDidUpdate() {
-    localStorage.setItem('contacts', JSON.stringify(this.props.contacts.items));
+  componentDidUpdate(prevProps) {
+    if (prevProps.contacts !== this.props.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.props.contacts));
+    }
   }
 
   handleDelete = e => {
@@ -20,12 +23,12 @@ class ContactsList extends Component {
   };
 
   render() {
-    const { items } = this.props.contacts;
+    const { contacts } = this.props;
     return (
       <div className={styles.contactsBox}>
         <ul>
-          {items.length &&
-            items.map(contact => (
+          {contacts.length > 0 &&
+            contacts.map(contact => (
               <li className={styles.listItem} key={contact.id}>
                 {contact.name}: {contact.number}
                 <button
@@ -44,8 +47,8 @@ class ContactsList extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { contacts: state };
+const mapStateToProps = ({ items, filter }) => {
+  return { contacts: items.filter(item => item.name.includes(filter)) };
 };
 
 const mapDispatchToProps = { getContacts, deleteContact };

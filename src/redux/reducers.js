@@ -29,7 +29,7 @@ const contactsItems = (state = [], action) => {
 
 const filterContacts = (state = '', action) => {
   switch (action.type) {
-    case 'FILTERCONTACTS':
+    case FILTERCONTACTS:
       return action.payload;
     default:
       return state;
