@@ -36,39 +36,41 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onHandleSubmit} className={styles.form}>
-        <label htmlFor={this.nameFormId}>
-          <p className={styles.subtitle}>Name</p>
-          <input
-            id={this.nameFormId}
-            type="text"
-            name="name"
-            value={this.state.name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            autoComplete="off"
-            required
-            onChange={this.onHandleChange}
-          />
-        </label>
-        <label htmlFor={this.numberFormId}>
-          <p className={styles.subtitle}>Number</p>
-          <input
-            id={this.numberFormId}
-            type="tel"
-            name="number"
-            value={this.state.number}
-            pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
-            title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
-            required
-            autoComplete="off"
-            onChange={this.onHandleChange}
-          />
-        </label>
-        <button type="submit" className={styles.btn}>
-          Add contact
-        </button>
-      </form>
+      <div className={styles.formContainer}>
+        <form onSubmit={this.onHandleSubmit} className={styles.form}>
+          <label htmlFor={this.nameFormId}>
+            <p className={styles.subtitle}>Name</p>
+            <input
+              id={this.nameFormId}
+              type="text"
+              name="name"
+              value={this.state.name}
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+              autoComplete="off"
+              required
+              onChange={this.onHandleChange}
+            />
+          </label>
+          <label htmlFor={this.numberFormId}>
+            <p className={styles.subtitle}>Number</p>
+            <input
+              id={this.numberFormId}
+              type="tel"
+              name="number"
+              value={this.state.number}
+              pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+              title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
+              required
+              autoComplete="off"
+              onChange={this.onHandleChange}
+            />
+          </label>
+          <button type="submit" className={styles.btn}>
+            Add contact
+          </button>
+        </form>
+      </div>
     );
   }
 }

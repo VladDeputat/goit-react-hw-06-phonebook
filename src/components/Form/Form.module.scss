@@ -1,3 +1,8 @@
+.formContainer {
+  width: 400px;
+  margin: 0 auto;
+}
+
 input {
   display: block;
   width: 300px;
@@ -19,7 +24,7 @@ input {
 .form {
   width: 400px;
   padding: 10px;
-  margin: 0 auto;
+  margin-left: 100px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -39,6 +44,7 @@ input {
   padding: 5px;
   height: 35px;
   border-radius: 10px;
+  margin-top: 20px;
   background-color: rgb(101, 214, 186);
   font-size: 18px;
   font-weight: 600;

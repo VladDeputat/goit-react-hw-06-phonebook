@@ -1,12 +1,16 @@
 .contactsBox {
-  // width: 300px;
+  width: 400px;
   margin: 0 auto;
+  align-items: start;
+}
+
+ul {
+  padding: 0 0 0 20px;
 }
 
 .listItem {
   font-size: 20px;
   margin-bottom: 5px;
-  padding-left: 50px;
   display: flex;
   align-items: center;
 }

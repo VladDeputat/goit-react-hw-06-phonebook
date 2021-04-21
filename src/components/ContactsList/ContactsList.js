@@ -48,7 +48,11 @@ class ContactsList extends Component {
 }
 
 const mapStateToProps = ({ items, filter }) => {
-  return { contacts: items.filter(item => item.name.includes(filter)) };
+  return {
+    contacts: items.filter(item =>
+      item.name.toLowerCase().includes(filter.toLowerCase()),
+    ),
+  };
 };
 
 const mapDispatchToProps = { getContacts, deleteContact };
