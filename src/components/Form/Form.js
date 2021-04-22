@@ -74,9 +74,9 @@ class Form extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return { contacts: state };
-};
+const mapStateToProps = state => ({
+  contacts: state.contacts,
+});
 
 const mapDispatchToProps = { addContact };
 

@@ -4,7 +4,6 @@ import styles from './FilterContacts.module.scss';
 
 const FilterContacts = ({ filter, filterContacts }) => {
   const onFilterChange = e => {
-    console.log('object');
     filterContacts(e.target.value);
   };
 

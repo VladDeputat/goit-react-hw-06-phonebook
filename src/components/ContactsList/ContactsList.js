@@ -4,19 +4,22 @@ import styles from './ContactsList.module.scss';
 import React, { Component } from 'react';
 
 class ContactsList extends Component {
-  componentDidMount() {
-    const storageContacts = JSON.parse(localStorage.getItem('contacts'));
-    console.log(storageContacts);
-    if (storageContacts) {
-      this.props.getContacts(storageContacts);
-    }
-  }
+  // componentDidMount() {
+  //   const storageContacts = JSON.parse(localStorage.getItem('contacts'));
+  //   console.log(storageContacts);
+  //   if (storageContacts) {
+  //     this.props.getContacts(storageContacts);
+  //   }
+  // }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.contacts !== this.props.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.props.contacts));
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.stateContacts !== this.props.stateContacts) {
+  //     localStorage.setItem(
+  //       'contacts',
+  //       JSON.stringify(this.props.stateContacts),
+  //     );
+  //   }
+  // }
 
   handleDelete = e => {
     this.props.deleteContact(e.target.id);
@@ -47,10 +50,11 @@ class ContactsList extends Component {
   }
 }
 
-const mapStateToProps = ({ items, filter }) => {
+const mapStateToProps = ({ contacts }) => {
   return {
-    contacts: items.filter(item =>
-      item.name.toLowerCase().includes(filter.toLowerCase()),
+    // stateContacts: contacts.items,
+    contacts: contacts.items.filter(item =>
+      item.name.toLowerCase().includes(contacts.filter.toLowerCase()),
     ),
   };
 };
